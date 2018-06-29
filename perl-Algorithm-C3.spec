@@ -4,7 +4,7 @@
 #
 Name     : perl-Algorithm-C3
 Version  : 0.10
-Release  : 1
+Release  : 2
 URL      : https://cpan.metacpan.org/authors/id/H/HA/HAARG/Algorithm-C3-0.10.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/H/HA/HAARG/Algorithm-C3-0.10.tar.gz
 Summary  : 'A module for merging hierarchies using the C3 algorithm'
