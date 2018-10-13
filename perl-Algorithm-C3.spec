@@ -4,13 +4,13 @@
 #
 Name     : perl-Algorithm-C3
 Version  : 0.10
-Release  : 4
+Release  : 5
 URL      : https://cpan.metacpan.org/authors/id/H/HA/HAARG/Algorithm-C3-0.10.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/H/HA/HAARG/Algorithm-C3-0.10.tar.gz
 Summary  : 'A module for merging hierarchies using the C3 algorithm'
 Group    : Development/Tools
 License  : Artistic-1.0-Perl
-Requires: perl-Algorithm-C3-man
+BuildRequires : buildreq-cpan
 
 %description
 NAME
@@ -18,12 +18,13 @@ Algorithm::C3 - A module for merging hierarchies using the C3 algorithm
 SYNOPSIS
 use Algorithm::C3;
 
-%package man
-Summary: man components for the perl-Algorithm-C3 package.
-Group: Default
+%package dev
+Summary: dev components for the perl-Algorithm-C3 package.
+Group: Development
+Provides: perl-Algorithm-C3-devel = %{version}-%{release}
 
-%description man
-man components for the perl-Algorithm-C3 package.
+%description dev
+dev components for the perl-Algorithm-C3 package.
 
 
 %prep
@@ -52,9 +53,9 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 if test -f Makefile.PL; then
-make pure_install PERL_INSTALL_ROOT=%{buildroot}
+make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
-./Build install --installdirs=site --destdir=%{buildroot}
+./Build install --installdirs=vendor --destdir=%{buildroot}
 fi
 find %{buildroot} -type f -name .packlist -exec rm -f {} ';'
 find %{buildroot} -depth -type d -exec rmdir {} 2>/dev/null ';'
@@ -63,8 +64,8 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.26.1/Algorithm/C3.pm
+/usr/lib/perl5/vendor_perl/5.26.1/Algorithm/C3.pm
 
-%files man
+%files dev
 %defattr(-,root,root,-)
 /usr/share/man/man3/Algorithm::C3.3
