@@ -19,6 +19,16 @@ Algorithm::C3 - A module for merging hierarchies using the C3 algorithm
 SYNOPSIS
 use Algorithm::C3;
 
+%package dev
+Summary: dev components for the perl-Algorithm-C3 package.
+Group: Development
+Provides: perl-Algorithm-C3-devel = %{version}-%{release}
+Requires: perl-Algorithm-C3 = %{version}-%{release}
+
+%description dev
+dev components for the perl-Algorithm-C3 package.
+
+
 %prep
 %setup -q -n Algorithm-C3-0.10
 
@@ -56,3 +66,8 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.28.2/Algorithm/C3.pm
+
+%files dev
+%defattr(-,root,root,-)
+/usr/share/man/man3/Algorithm::C3.3
