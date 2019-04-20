@@ -4,28 +4,20 @@
 #
 Name     : perl-Algorithm-C3
 Version  : 0.10
-Release  : 10
+Release  : 11
 URL      : https://cpan.metacpan.org/authors/id/H/HA/HAARG/Algorithm-C3-0.10.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/H/HA/HAARG/Algorithm-C3-0.10.tar.gz
-Summary  : 'A module for merging hierarchies using the C3 algorithm'
+Summary  : A module for merging hierarchies using the C3 algorithm
 Group    : Development/Tools
 License  : Artistic-1.0-Perl
 BuildRequires : buildreq-cpan
+BuildRequires : perl(Test::More)
 
 %description
 NAME
 Algorithm::C3 - A module for merging hierarchies using the C3 algorithm
 SYNOPSIS
 use Algorithm::C3;
-
-%package dev
-Summary: dev components for the perl-Algorithm-C3 package.
-Group: Development
-Provides: perl-Algorithm-C3-devel = %{version}-%{release}
-
-%description dev
-dev components for the perl-Algorithm-C3 package.
-
 
 %prep
 %setup -q -n Algorithm-C3-0.10
@@ -64,8 +56,3 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.1/Algorithm/C3.pm
-
-%files dev
-%defattr(-,root,root,-)
-/usr/share/man/man3/Algorithm::C3.3
