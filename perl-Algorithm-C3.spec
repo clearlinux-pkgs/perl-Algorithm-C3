@@ -4,7 +4,7 @@
 #
 Name     : perl-Algorithm-C3
 Version  : 0.11
-Release  : 23
+Release  : 24
 URL      : https://cpan.metacpan.org/authors/id/H/HA/HAARG/Algorithm-C3-0.11.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/H/HA/HAARG/Algorithm-C3-0.11.tar.gz
 Summary  : 'A module for merging hierarchies using the C3 algorithm'
@@ -98,4 +98,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.34.0/Algorithm/C3.pm
+/usr/lib/perl5/*
